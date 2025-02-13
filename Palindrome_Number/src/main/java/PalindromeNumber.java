@@ -7,7 +7,7 @@ public class PalindromeNumber {
     }
     public static void isPalindrome() {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Введите число для проверки на полиндром");
+            System.out.println("Enter the number for palindrome check");
             while (scanner.hasNextInt()) {
                 int checkForPalindrome = scanner.nextInt();
                 if (isPalindromeNumber(checkForPalindrome)) {
