@@ -27,17 +27,35 @@ public class Main {
     }
 
     public static boolean isValidParentheses(String s) {
-        int count = 0;
+        int[] count = new int[3];
         for (char ch : s.toCharArray()) {
-            if (ch == '(') {
-                count++;
-            } else if (ch == ')') {
-                count--;
+            switch (ch) {
+                case '(':
+                    count[0]++;
+                    break;
+                case ')':
+                    count[0]--;
+                    break;
+                case '{':
+                    count[1]++;
+                    break;
+                case '}':
+                    count[1]--;
+                    break;
+                case '[':
+                    count[2]++;
+                    break;
+                case ']':
+                    count[2]--;
+                    break;
             }
-            if (count < 0) {
-                return false;
+            for (int c : count) {
+                if (c < 0) return false;
             }
         }
-        return count == 0;
+        for (int c : count) {
+            if (c != 0) return false;
+        }
+        return true;
     }
 }
